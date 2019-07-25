@@ -1,0 +1,19 @@
+#include "TXLib.h"
+
+int main ()
+    {
+    POINT pos = {500, 0};
+    int h = 500, w = 500;
+    
+    txCreateWindow (1000, 1000);
+    txSetFillColor (TX_GREEN);
+    txRectangle (pos.x, pos.y, pos.x+w, pos.y+h);
+
+    for (int x = 0; x < 1000; x++)
+        {
+        int y = x*x;
+        txCircle (x+pos.x, -(y/100)+h, 2);
+
+        }
+
+    }

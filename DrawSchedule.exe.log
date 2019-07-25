@@ -1,0 +1,348 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe,
+
+ВНЕЗАПНО: Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x0041B35C в функции txEllipse() в файле C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h на строке 11066. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 105, Date: 2019-06-23 00:00:00 +0300], Instance: 0x004FE2D4 (32-bit), Flags: CMdRe0, Thread: 0x1720 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041B35C in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: txEllipse() at C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h (11066)
+# 1 0x0041B51C in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: txCircle() at C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h (11073)
+
+# 2 0x004269A7 in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: main() at C:/Users/Dima/Desktop/projects/C++/Sort/DrawSchedule.cpp (15):
+
+     13:         {
+     14:         int y = x*x;
+=>   15:         if (-(y/100) + size.y + pos.y > size.y && x+pos.x < size.x) txCircle (x+pos.x, -(y/100) + size.y + pos.y, 2);
+     16: 
+     17:         }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txEllipse(double, double, double, double, HDC) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (11066):
+
+  11064: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return false;
+  11065: 
+=>11066: $   return txGDI ((Win32::Ellipse (dc, ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1))), dc);
+  11067:     }
+  11068: 
+
+# 1 in bool {anonymous}::TX::txCircle(double, double, double) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (11073):
+
+  11071: bool txCircle (double x, double y, double r)
+  11072:     {
+=>11073: $1  return txEllipse (x-r, y-r, x+r, y+r);
+  11074:     }
+  11075: 
+
+# 2 in int main() at C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.cpp (15):
+
+     13:         {
+     14:         int y = x*x;
+=>   15:         if (-(y/100) + size.y + pos.y > size.y && x+pos.x < size.x) txCircle (x+pos.x, -(y/100) + size.y + pos.y, 2);
+     16: 
+     17:         }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 105, Date: 2019-06-23 00:00:00 +0300]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h
+Compiled:	Jul 24 2019 20:28:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Jul 24 2019 20:28:47
+
+Run file:	C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe
+Directory:	C:\Users\Dima\Desktop\projects\C++\Sort
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x0041B35C в функции txEllipse() в файле C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h на строке 11066. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 105, Date: 2019-06-23 00:00:00 +0300], Instance: 0x004FE2D4 (32-bit), Flags: CMdRe0, Thread: 0x1720 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041B35C in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: txEllipse() at C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h (11066)
+# 1 0x0041B51C in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: txCircle() at C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h (11073)
+
+# 2 0x004269A7 in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: main() at C:/Users/Dima/Desktop/projects/C++/Sort/DrawSchedule.cpp (15):
+
+     13:         {
+     14:         int y = x*x;
+=>   15:         if (-(y/100) + size.y + pos.y > size.y && x+pos.x < size.x) txCircle (x+pos.x, -(y/100) + size.y + pos.y, 2);
+     16: 
+     17:         }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txEllipse(double, double, double, double, HDC) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (11066):
+
+  11064: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return false;
+  11065: 
+=>11066: $   return txGDI ((Win32::Ellipse (dc, ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1))), dc);
+  11067:     }
+  11068: 
+
+# 1 in bool {anonymous}::TX::txCircle(double, double, double) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (11073):
+
+  11071: bool txCircle (double x, double y, double r)
+  11072:     {
+=>11073: $1  return txEllipse (x-r, y-r, x+r, y+r);
+  11074:     }
+  11075: 
+
+# 2 in int main() at C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.cpp (15):
+
+     13:         {
+     14:         int y = x*x;
+=>   15:         if (-(y/100) + size.y + pos.y > size.y && x+pos.x < size.x) txCircle (x+pos.x, -(y/100) + size.y + pos.y, 2);
+     16: 
+     17:         }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 105, Date: 2019-06-23 00:00:00 +0300]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h
+Compiled:	Jul 24 2019 20:28:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Jul 24 2019 20:28:48
+
+Run file:	C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe
+Directory:	C:\Users\Dima\Desktop\projects\C++\Sort
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe, файл: C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h, строка: 8105, функция: bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND),
+
+Сообщение: Cannot lock GDI to free resources
+
+#3: TXLib [Ver: 00173a, Rev: 105, Date: 2019-06-23 00:00:00 +0300], Instance: 0x004FE2D4 (32-bit), Flags: CMdrE0, Thread: 0x39C8 (Canvas). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041B35C in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: txEllipse() at C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h (11066)
+# 1 0x0041B51C in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: txCircle() at C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h (11073)
+
+# 2 0x004269A7 in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: main() at C:/Users/Dima/Desktop/projects/C++/Sort/DrawSchedule.cpp (15):
+
+     13:         {
+     14:         int y = x*x;
+=>   15:         if (-(y/100) + size.y + pos.y > size.y && x+pos.x < size.x) txCircle (x+pos.x, -(y/100) + size.y + pos.y, 2);
+     16: 
+     17:         }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8105):
+
+   8103: $   bool locked = false;
+   8104: $   _txWaitFor ((locked = txLock (false), locked), _TX_TIMEOUT);
+=> 8105: $   if (!locked) TX_DEBUG_ERROR ("Cannot lock GDI to free resources");
+   8106: 
+   8107:     // Освобождаем пользовательские ресурсы
+
+# 1 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8033):
+
+   8031: 
+   8032:         case WM_CLOSE:        $ if (_txCanvas_OnCLOSE      (wnd)) break; else return 0;
+=> 8033:         case WM_DESTROY:      $     _txCanvas_OnDESTROY    (wnd);             return 0;
+   8034: 
+   8035:         case WM_PAINT:        $     _txCanvas_OnPAINT      (wnd);             return 0;
+
+# 2 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8062):
+
+   8060:         }
+   8061: 
+=> 8062: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   8063:     }
+   8064: 
+
+# 3 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8062):
+
+   8060:         }
+   8061: 
+=> 8062: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   8063:     }
+   8064: 
+
+# 4 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8062):
+
+   8060:         }
+   8061: 
+=> 8062: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   8063:     }
+   8064: 
+
+# 5 in unsigned int {anonymous}::TX::_txCanvas_ThreadProc(void*) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (7836):
+
+   7834: 
+   7835: $       TranslateMessage (&msg);
+=> 7836: $       DispatchMessage  (&msg);
+   7837: 
+   7838: $       Sleep (0);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 105, Date: 2019-06-23 00:00:00 +0300]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h
+Compiled:	Jul 24 2019 20:28:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Jul 24 2019 20:28:47
+
+Run file:	C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe
+Directory:	C:\Users\Dima\Desktop\projects\C++\Sort
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe, файл: C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h, строка: 8105, функция: bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND),
+
+Сообщение: Cannot lock GDI to free resources
+
+#4: TXLib [Ver: 00173a, Rev: 105, Date: 2019-06-23 00:00:00 +0300], Instance: 0x004FE2D4 (32-bit), Flags: CMdrE0, Thread: 0x39C8 (Canvas). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041B35C in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: txEllipse() at C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h (11066)
+# 1 0x0041B51C in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: txCircle() at C:/Users/Dima/Desktop/projects/C++/TX/TXLib.h (11073)
+
+# 2 0x004269A7 in C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe: main() at C:/Users/Dima/Desktop/projects/C++/Sort/DrawSchedule.cpp (15):
+
+     13:         {
+     14:         int y = x*x;
+=>   15:         if (-(y/100) + size.y + pos.y > size.y && x+pos.x < size.x) txCircle (x+pos.x, -(y/100) + size.y + pos.y, 2);
+     16: 
+     17:         }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8105):
+
+   8103: $   bool locked = false;
+   8104: $   _txWaitFor ((locked = txLock (false), locked), _TX_TIMEOUT);
+=> 8105: $   if (!locked) TX_DEBUG_ERROR ("Cannot lock GDI to free resources");
+   8106: 
+   8107:     // Освобождаем пользовательские ресурсы
+
+# 1 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8033):
+
+   8031: 
+   8032:         case WM_CLOSE:        $ if (_txCanvas_OnCLOSE      (wnd)) break; else return 0;
+=> 8033:         case WM_DESTROY:      $     _txCanvas_OnDESTROY    (wnd);             return 0;
+   8034: 
+   8035:         case WM_PAINT:        $     _txCanvas_OnPAINT      (wnd);             return 0;
+
+# 2 in int {anonymous}::TX::txMessageBox(const char*, const char*, unsigned int) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (10482):
+
+  10480: int txMessageBox (const char text[], const char header[], unsigned flags /*= MB_ICONINFORMATION | MB_OKCANCEL*/)
+  10481:     {
+=>10482: $1  static wchar_t textW   [_TX_BIGBUFSIZE * sizeof (wchar_t)] = L"[NULL text]";
+  10483:     static wchar_t headerW [_TX_BUFSIZE    * sizeof (wchar_t)] = L"[NULL header]";
+  10484: 
+
+# 3 in bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8105):
+
+   8103: $   bool locked = false;
+   8104: $   _txWaitFor ((locked = txLock (false), locked), _TX_TIMEOUT);
+=> 8105: $   if (!locked) TX_DEBUG_ERROR ("Cannot lock GDI to free resources");
+   8106: 
+   8107:     // Освобождаем пользовательские ресурсы
+
+# 4 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8033):
+
+   8031: 
+   8032:         case WM_CLOSE:        $ if (_txCanvas_OnCLOSE      (wnd)) break; else return 0;
+=> 8033:         case WM_DESTROY:      $     _txCanvas_OnDESTROY    (wnd);             return 0;
+   8034: 
+   8035:         case WM_PAINT:        $     _txCanvas_OnPAINT      (wnd);             return 0;
+
+# 5 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8062):
+
+   8060:         }
+   8061: 
+=> 8062: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   8063:     }
+   8064: 
+
+# 6 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8062):
+
+   8060:         }
+   8061: 
+=> 8062: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   8063:     }
+   8064: 
+
+# 7 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (8062):
+
+   8060:         }
+   8061: 
+=> 8062: $   return DefWindowProc (wnd, msg, wpar, lpar);
+   8063:     }
+   8064: 
+
+# 8 in unsigned int {anonymous}::TX::_txCanvas_ThreadProc(void*) at C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h (7836):
+
+   7834: 
+   7835: $       TranslateMessage (&msg);
+=> 7836: $       DispatchMessage  (&msg);
+   7837: 
+   7838: $       Sleep (0);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 105, Date: 2019-06-23 00:00:00 +0300]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Dima\Desktop\projects\C++\TX\TXLib.h
+Compiled:	Jul 24 2019 20:28:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Jul 24 2019 20:28:48
+
+Run file:	C:\Users\Dima\Desktop\projects\C++\Sort\DrawSchedule.exe
+Directory:	C:\Users\Dima\Desktop\projects\C++\Sort
+
+--------------------------------------------------

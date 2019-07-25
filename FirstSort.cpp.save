@@ -1,0 +1,96 @@
+#include "TXLib.h"
+#include "MyCoordSys.h"
+
+void bubbleSort (int arr[], int size);
+
+int NCompar = 0;
+int NSwap = 0;
+
+int main ()
+    {
+    txCreateWindow (1100, 1100);
+
+    txBegin();
+
+    MyCoordSys Compar = {{0,   0}, {500, 500}, 0.5, 0.001};
+    MyCoordSys   Swap = {{500, 0}, {500, 500}, 0.5, 0.001};
+
+    while (true)
+        {
+        txSetFillColor (TX_BLACK);
+        txClear();
+
+        if (txMouseButtons() == 1) Compar = {{txMouseX(), txMouseY()}, {500, 500}, 0.5, 0.001};
+        if (txMouseButtons() == 2) Swap   = {{500, 0}, {500, 500}, 0.5, 0.001};
+
+        txSetFillColor (RGB (0,  64, 0));
+        txSetColor     (RGB (0, 128, 0), 3);
+
+        txRectangle (  Swap.pos.x,   Swap.pos.y,   Swap.pos.x + Swap.size.x,     Swap.pos.y + Swap.size.y);
+        txRectangle (Compar.pos.x, Compar.pos.y, Compar.pos.x + Compar.size.x, Compar.pos.y + Compar.size.y);
+
+        txSetFillColor (RGB (128, 255, 128));
+        txSetColor     (RGB (128, 255, 128));
+        for (int szArr = 0; szArr <= 1000; szArr++)
+            {
+            int example[szArr];
+
+            for (int i = 0; i < szArr; i ++)
+                {
+                example [i] = rand()%10;
+                }
+
+            bubbleSort (example, szArr);
+
+            //printf ("szArr0 = %i, NCompar0 = %i, szArr1 = %lg, NCompar1 = %lg\n", szArr, NCompar, Compar.MyX (szArr), Compar.MyY (NCompar));
+
+            Compar.Circle (szArr, NCompar, 2);
+            Swap.Circle   (szArr, NSwap  , 2);
+            }
+
+        txSleep (10);
+        }
+
+    }
+
+
+//=================================================================================
+
+/*void methodOfCalculation(int arr[], int size)
+{
+
+
+    for (int i = 0; i < size; i++)
+    {
+        int temp = 0;
+        for (int j = 0; j < size; j++)
+        {
+            if (arr[i] > arr[j])
+                temp++;
+        }
+        sortedMass[temp] = arr[i];
+    }
+} */
+
+
+
+void bubbleSort (int arr[], int size)
+    {
+    NCompar = 0;
+    NSwap = 0;
+    for (int i = 0; i < size - 1; i++)
+        {
+        for (int j = 0; j < size - i - 1; j++)
+            {
+            NCompar++;
+            if (arr[j] > arr[j+1])
+                {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+
+                NSwap++;
+                }
+            }
+        }
+    }

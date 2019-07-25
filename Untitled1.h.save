@@ -1,0 +1,74 @@
+#include "TXLib.h"
+
+class MyCoordSys
+    {
+
+    private:
+    POINT pos, size;
+    double scale;
+
+    public:
+    void Circle    (double  x,  double y, double r);
+    void Pixel     (double  x,  double y, COLORREF color);
+    void Rectangle (double x0, double y0, double x1, double y1);
+    void Line      (double x0, double y0, double x1, double y1);
+    void TextOut   (double  x,  double y, const char text[]);
+    double MyX     (double x);
+    double MyY     (double y);
+
+    }
+
+//=============================================================================
+
+void MyX (double x)
+    {
+    return x*scale + pos.x;
+    }
+
+//=============================================================================
+
+void MyY (double y)
+    {
+    return -(y*scale) + pos.y;
+    }
+
+//=============================================================================
+
+void Circle (double  x,  double y, double r)
+    {
+    if (MyX (x) > pos.x && MyX (x) < pos.x+size.x && MyY (y) > pos.y && MyY (y) < pos.y+size.y) txCircle (MyX (x), MyY (y), r*scale);
+    }
+
+//=============================================================================
+
+void Pixel (double  x,  double y, COLORREF color)
+    {
+    if (MyX (x) > pos.x && MyX (x) < pos.x+size.x && MyY (y) > pos.y && MyY (y) < pos.y+size.y) txSetPixel (MyX (x), MyY (y), color);
+    }
+
+//=============================================================================
+
+void Rectangle (double x0, double y0, double x1, double y1)
+    {
+    if (MyX (x0) > pos.x && MyX (x0) < pos.x+size.x && MyY (y0) > pos.y && MyY (y0) < pos.y+size.y
+        MyX (x1) > pos.x && MyX (x1) < pos.x+size.x && MyY (y1) > pos.y && MyY (y1) < pos.y+size.y) txRectangle (MyX (x0), MyY (y0), MyX (x1), MyY (y1));
+    }
+
+//=============================================================================
+
+void Line (double x0, double y0, double x1, double y1)
+    {
+    if (MyX (x0) > pos.x && MyX (x0) < pos.x+size.x && MyY (y0) > pos.y && MyY (y0) < pos.y+size.y
+        MyX (x1) > pos.x && MyX (x1) < pos.x+size.x && MyY (y1) > pos.y && MyY (y1) < pos.y+size.y)  txLine (MyX (x0), MyY (y0), MyX (x1), MyY (y1));
+    }
+
+//=============================================================================
+
+void TextOut (double  x,  double y, const char text[])
+    {
+    if (MyX (x) > pos.x && MyX (x) < pos.x+size.x && MyY (y) > pos.y && MyY (y) < pos.y+size.y) txTextOut (MyX (x), MyY (y), text);
+    }
+
+//=============================================================================
+
+void CheckCo
